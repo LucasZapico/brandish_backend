@@ -9,6 +9,15 @@ CORS(app)
 tags_danish = ['JJ', 'NN', 'NNS', 'VBP', 'NNS', 'VB', 'NNS', 'VB', 'NNS', 'NN', 'NNP']
 
 
+@app.route('/', methods=["GET"])
+def hello_world():
+    return "Hello World"
+
+@app.route('/api')
+def hello_api():
+    return jsonify({"hello": "hello from deta brandish api endpoint"})
+
+
 @app.route('/make-ipsum')
 @cross_origin(origin='*')
 def make_ipsum():
