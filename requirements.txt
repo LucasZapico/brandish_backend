@@ -4,3 +4,4 @@ Scrapy==2.4.1
 nltk==3.5
 Flask_RESTful==0.3.8
 beautifulsoup4==4.9.3
+gunicorn==19.9.0
