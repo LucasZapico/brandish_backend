@@ -9,9 +9,6 @@ from bs4 import BeautifulSoup
 # tokenize the content using nlp 
 # return ajetives 
 
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-
 # tags = ["JJ", "NN", "NNS", "RBR", "RBS", "VBN","NPP", "NNP"]
 tags = ['NNP']
 tags_danish = ['JJ', 'NN', 'NNS', 'VBP', 'NNS', 'VB', 'NNS', 'VB', 'NNS', 'NN', 'NN']
