@@ -3,8 +3,8 @@ from flask_cors import CORS, cross_origin
 from helpers import  get_site_markup, tokenize, match_tokens, clean_copy, make_para
 
 app = Flask(__name__)
-CORS(app)
-
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 tags_danish = ['JJ', 'NN', 'NNS', 'VBP', 'NNS', 'VB', 'NNS', 'VB', 'NNS', 'NN', 'NNP']
 
@@ -19,7 +19,7 @@ def hello_api():
 
 
 @app.route('/make-ipsum')
-@cross_origin(origin='*')
+@cross_origin()
 def make_ipsum():
   
   url = request.args.get('url')
@@ -47,8 +47,8 @@ def make_ipsum():
   
   return jsonify(data=result), 200
 
-# if __name__ == '__main__':
-#   app.run(debug=True, port=4000)
+if __name__ == '__main__':
+  app.run(debug=True, port=5000)
 
 
 
