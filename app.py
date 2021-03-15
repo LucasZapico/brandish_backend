@@ -1,11 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
-from get_site import  get_site_markup, tokenize, match_tokens, clean_copy, make_para
-
-import scrapy
-# from scrapy.spider import CrawlSpider, Rule
-# from scrapy.linkextractors import LinkExtractor
-import re
+from helpers import  get_site_markup, tokenize, match_tokens, clean_copy, make_para
 
 app = Flask(__name__)
 CORS(app)
@@ -16,7 +11,7 @@ tags_danish = ['JJ', 'NN', 'NNS', 'VBP', 'NNS', 'VB', 'NNS', 'VB', 'NNS', 'NN', 
 
 @app.route('/make-ipsum')
 @cross_origin(origin='*')
-def query_example():
+def make_ipsum():
   
   url = request.args.get('url')
   para_size = request.args.get('para-size')
@@ -44,7 +39,7 @@ def query_example():
   return jsonify(data=result), 200
 
 if __name__ == '__main__':
-  app.run(debug=True, port=5000)
+  app.run(debug=True, port=4000)
 
 
 
