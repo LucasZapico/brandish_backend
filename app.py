@@ -14,13 +14,13 @@ tags_danish = ['JJ', 'NN', 'NNS', 'VBP', 'NNS', 'VB', 'NNS', 'VB', 'NNS', 'NN', 
 def hello_world():
     return "Hello World"
 
-@app.route('/api')
+@app.route('/api/')
 @cross_origin('*')
 def hello_api():
     return jsonify({"hello": "hello from deta brandish api endpoint"})
 
 
-@app.route('/make-ipsum')
+@app.route('/make-ipsum/')
 @cross_origin('*')
 def make_ipsum():
   
