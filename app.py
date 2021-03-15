@@ -10,16 +10,18 @@ tags_danish = ['JJ', 'NN', 'NNS', 'VBP', 'NNS', 'VB', 'NNS', 'VB', 'NNS', 'NN', 
 
 
 @app.route('/', methods=["GET"])
+@cross_origin('*')
 def hello_world():
     return "Hello World"
 
 @app.route('/api')
+@cross_origin('*')
 def hello_api():
     return jsonify({"hello": "hello from deta brandish api endpoint"})
 
 
 @app.route('/make-ipsum')
-@cross_origin()
+@cross_origin('*')
 def make_ipsum():
   
   url = request.args.get('url')
