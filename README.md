@@ -2,12 +2,11 @@
 
 ## Todo
 
-- handle forbidden error and other server side errors 
-- randomize the copy more
-- add 'conjunction' and 'articles'
-- dynmaicly remove brand name
-- save current set of ipsum 
-- 
+- [x] handle forbidden error and other server side errors 
+- [ ] randomize the copy more
+- [ ] add 'conjunction' and 'articles'
+- [ ] dynamically remove brand name
+
 ### Dev Notes 
 
 #### Python Env 
