@@ -7,36 +7,11 @@ from bs4 import BeautifulSoup
 
 # get the copy from a given url 
 # tokenize the content using nlp 
-# return ajetives 
+
 
 # tags = ["JJ", "NN", "NNS", "RBR", "RBS", "VBN","NPP", "NNP"]
 tags = ['NNP']
 tags_danish = ['JJ', 'NN', 'NNS', 'VBP', 'NNS', 'VB', 'NNS', 'VB', 'NNS', 'NN', 'NN']
-
-
-def url_set_to_scrape(base_url):
-  # store of previously searched urls
-  searched = []
-  # get domain url : https://example.com/page/100 -> https://example.com
-  domain = re.findall(r'[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}', base_url)
-  print('test',domain)
-  get_links(base_url, domain[0])
-
-
-
-def get_links(url, domain_url):
-    links_on_page = []
-    markup = urllib.request.urlopen(url).read()
-    soup = BeautifulSoup(markup, 'html.parser')
-    
-
-
-    tags = soup('a')
-    print(tags[:5])
-    for tag in tags: 
-      if domain_url in tag: 
-        links_on_page.append(tag)
-    print(links_on_page)
 
 # get site markup
 def get_site_markup(url):
@@ -103,15 +78,12 @@ def make_para(copy, para_size, number_para):
     for i in range(number_para):
       paras.append(copyArr[para: para + para_size])
       para = para + para_size
-      print(paras)
     for p in range(len(paras)): 
       paras[p] = ' '.join(paras[p])
     return paras
   else:
     # create enough copy
     while total > len(copyArr): 
-      print('copy', len(copyArr))
-      print('tot',total)
       copyArr = copyArr + copyArr
     # parse into number of paragraphs of defined length
     para = 0
@@ -123,4 +95,23 @@ def make_para(copy, para_size, number_para):
     return paras
 
 
-drop_words = ['shipping', 'payments', 'contact', 'login', 'orders', 'total', 'account', 'sales', 'customer', 'faq', 'privacy', 'policy']
+
+
+# Get root domain
+# def url_set_to_scrape(base_url):
+#   # store of previously searched urls
+#   searched = []
+#   # get domain url : https://example.com/page/100 -> https://example.com
+#   domain = re.findall(r'[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}', base_url)
+#   get_links(base_url, domain[0])
+
+
+# # get link on given page
+# def get_links(url, domain_url):
+#     links_on_page = []
+#     markup = urllib.request.urlopen(url).read()
+#     soup = BeautifulSoup(markup, 'html.parser')
+#     tags = soup('a')
+#     for tag in tags: 
+#       if domain_url in tag: 
+#         links_on_page.append(tag)
