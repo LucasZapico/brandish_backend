@@ -1,6 +1,8 @@
 # Brandish Ipsum 
 
 ## Todo
+
+- handle forbidden error and other server side errors 
 - randomize the copy more
 - add 'conjunction' and 'articles'
 - dynmaicly remove brand name
@@ -20,6 +22,23 @@ source ./env/bin/activate
 pip install pipreqs
 ```
 
+#### Push to Heroku 
+
+```shell 
+git push heroku master
+```
+
+### Dev Journal 
+
+#### Challenges 
+
+- attempted deploy on deta, PythonforEveryone, and, heroku
+- hosting platforms and nltk 
+  - solution: nltk.txt
+- flask and hosting platforms (herok)
+  - gunicorn (not sure why this solved the deployment failure)
+- cors errors WIP 
+- 
 #### NLP (Natural Language Processing Token table)
 
 |      |                                                                          |
